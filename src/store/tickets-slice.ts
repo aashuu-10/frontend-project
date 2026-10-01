@@ -1,7 +1,7 @@
 
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { initialTickets } from "@/lib/mock-data";
-import type { Ticket, TicketStatus } from "@/types/ticket";
+import type { Ticket, TicketStatus } from "@/types/tickets";
 
 interface TicketsState {
   items: Ticket[];
