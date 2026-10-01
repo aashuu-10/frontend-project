@@ -1,36 +1,147 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Support Ticket Dashboard
 
-## Getting Started
+A responsive support-ticket dashboard built with Next.js, React, TypeScript, and Redux.
 
-First, run the development server:
+## Features
+
+* View support tickets
+* Search and filter tickets
+* View ticket details
+* Manage ticket status and priority
+* Responsive dashboard interface
+* Client-side state management with Redux
+* AI-assisted ticket information where available
+* Error and loading states
+* Automated tests for important application behaviour
+
+## Requirements
+
+Before running the project, make sure you have:
+
+* Node.js 18 or newer
+* npm
+* Git
+
+## Installation
+
+Clone the repository and enter the project directory:
+
+```bash
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+cd support-ticket-dashboard
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+## Environment Variables
+
+Create a `.env.local` file in the project root if the application requires environment variables.
+
+Example:
+
+```env
+NEXT_PUBLIC_API_URL=
+AI_API_KEY=
+```
+
+Only add variables that are actually required by the application.
+
+### Important
+
+Do not commit secrets, API keys, passwords, or other private credentials to GitHub.
+
+The `.env.local` file should be included in `.gitignore`.
+
+## Running the Development Server
+
+Start the application with:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Production Build
 
-## Learn More
+Create a production build:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run the production server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm start
+```
 
-## Deploy on Vercel
+## Running Tests
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Run the test suite using:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm test
+```
+
+If the project uses a different test command, use the command defined in `package.json`.
+
+For a watch mode, if supported:
+
+```bash
+npm test -- --watch
+```
+
+## Project Structure
+
+```text
+support-ticket-dashboard/
+├── app/                    # Next.js application routes
+├── src/
+│   ├── components/        # Reusable UI components
+│   ├── store/              # Redux store and state
+│   └── ...
+├── public/                 # Static assets
+├── DECISIONS.md            # Technical decisions and trade-offs
+├── README.md               # Project documentation
+├── package.json            # Dependencies and scripts
+└── ...
+```
+
+## Testing Approach
+
+Tests focus on important application behaviour rather than implementation details.
+
+The tests are designed to be deterministic and should not depend on random delays or random errors from the fake API.
+
+Important areas include:
+
+1. Ticket data/state behaviour
+2. Ticket filtering/search behaviour
+3. Ticket status or priority updates
+
+## Known Limitations
+
+The development version may use a fake or simulated API. Its random delays and errors are not used as the basis for automated test results.
+
+Production deployment would require a persistent backend, authentication, proper API error handling, and a production-grade real-time update mechanism.
+
+## Technical Decisions
+
+See `DECISIONS.md` for:
+
+* Ambiguous requirements and decisions
+* Test-ticket handling
+* Data ownership
+* Live-update decisions
+* AI trust model
+* Deferred work
+* Development mistakes and lessons learned
